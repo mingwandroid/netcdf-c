@@ -12677,6 +12677,7 @@ int
 test_nc_put_att_text(void)
 {
     int i, j, err, ncid, nok=0;
+    double dtmp;
     size_t k, ndx[1];
     text value[MAX_NELS];
 
@@ -12721,7 +12722,7 @@ test_nc_put_att_text(void)
 
                 for (k = 0; k < ATT_LEN(i,j); k++) {
                     ndx[0] = k;
-                    double dtmp = hash(ATT_TYPE(i,j), -1, ndx);
+                    dtmp = hash(ATT_TYPE(i,j), -1, ndx);
                     value[k] = (text)dtmp;
                 }
                 err = nc_put_att_text(ncid, i, ATT_NAME(i,j), ATT_LEN(i,j), value);

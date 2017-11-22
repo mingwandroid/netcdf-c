@@ -490,7 +490,8 @@ NCD4_rcprocess(NCD4INFO* info)
 static struct NCD4triple*
 rclocate(char* key, char* hostport)
 {
-    int i,found;
+    int i,found,t;
+    size_t hplen;
     NClist* rc = NCD4_globalstate->rc.rc;
     NCD4triple* triple = NULL;
 
@@ -504,8 +505,7 @@ rclocate(char* key, char* hostport)
 
     for(found=0,i=0;i<nclistlength(rc);i++) {
 	triple = (NCD4triple*)nclistget(rc,i);
-        size_t hplen = strlen(triple->host);
-        int t;
+        hplen = strlen(triple->host);
         if(strcmp(key,triple->key) != 0) continue; /* keys do not match */
         /* If the triple entry has no url, then use it
            (because we have checked all other cases)*/

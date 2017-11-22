@@ -2363,7 +2363,7 @@ test_nc_set_default_format(void)
 int
 test_nc_delete(void)
 {
-    int err, nok=0;;
+    int err, nok=0;
     int ncid;
 
     err = file_create(scratch, NC_CLOBBER, &ncid);
