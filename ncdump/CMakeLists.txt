@@ -186,7 +186,9 @@ ENDIF()
     # is different, but the result is actually correct.
     #IF(NOT MSVC)
     add_sh_test(ncdump tst_netcdf4)
-    add_bin_test(ncdump tst_h_rdc0)
+    if(TARGET ncdump_tst_netcdf4)
+      add_bin_test(ncdump tst_h_rdc0)
+    ENDIF()
     #ENDIF()
 
     add_bin_test(ncdump tst_unicode)
